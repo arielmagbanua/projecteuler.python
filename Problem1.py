@@ -11,7 +11,7 @@ answer: 233168
 """
 
 
-def sum_of_multiples(num=1000):
+def sum_of_multiples(limit=1000):
     """(num) -> num
 
     Returns the calculated sum of all the multiples of 3 or 5 below the given number.
@@ -22,7 +22,7 @@ def sum_of_multiples(num=1000):
     """
     total = 0
 
-    for c in range(num):
+    for c in range(limit):
         if c % 3 == 0 or c % 5 == 0:
             total += c
 
