@@ -34,4 +34,3 @@ print(sum_of_multiples(1000))
 
 # other examples
 print(sum_of_multiples(10))
-
