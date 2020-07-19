@@ -11,7 +11,15 @@ answer: 233168
 """
 
 
-def sum_of_multiples(num):
+def sum_of_multiples(num=1000):
+    """(num) -> num
+
+    Returns the calculated sum of all the multiples of 3 or 5 below the given number.
+
+    Keyword arguments:
+    num -- The number limit (default 1000)
+    :return:
+    """
     total = 0
 
     for c in range(num):
@@ -26,3 +34,4 @@ print(sum_of_multiples(1000))
 
 # other examples
 print(sum_of_multiples(10))
+
