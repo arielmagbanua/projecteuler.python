@@ -27,7 +27,7 @@ def largest_prime_factor(num=600851475143):
     # the number of 2s that divide num
     while num % 2 == 0:
         largest_prime = 2
-        num >>= 1
+        num >>= 1  # equivalent to n /= 2
 
     # num must be odd at this point,
     # thus skip the even numbers and
