@@ -1,4 +1,4 @@
-import numpy
+import math
 
 """
 Largest prime factor
@@ -7,26 +7,9 @@ Problem 3
 The prime factors of 13195 are 5, 7, 13 and 29.
 
 What is the largest prime factor of the number 600851475143 ?
+
+ans: 6857
 """
-
-
-def is_prime(num):
-    """(num) -> bool
-
-    Returns true if the given number is a prime number and false if not.
-
-    Keyword arguments:
-    num -- Given number to test.
-    """
-
-    # convert to int64 type
-    num64 = numpy.int64(num)
-
-    for n in range(2, num64):
-        if num % n == 0:
-            return False
-
-    return True
 
 
 def largest_prime_factor(num=600851475143):
@@ -38,21 +21,30 @@ def largest_prime_factor(num=600851475143):
     num -- Given number to test (default 600851475143)
     """
 
-    # convert to int64 type
-    num64 = numpy.int64(num)
-    largest = numpy.int64(0)
+    # initialize the largest prime
+    largest_prime = -1
 
-    # if the number is prime itself then return it
-    if is_prime(num64):
-        return num64
+    # the number of 2s that divide num
+    while num % 2 == 0:
+        largest_prime = 2
+        num >>= 1
 
-    for n in range(2, num+1):
-        if num % n == 0:
-            # determine if this number is prime
-            if is_prime(n):
-                largest = n
-        print(n)
-    return largest
+    # num must be odd at this point,
+    # thus skip the even numbers and
+    # iterate only for odd integers
+    for i in range(3, int(math.sqrt(num)) + 1, 2):
+        while num % i == 0:
+            largest_prime = i
+            num = num / i
+
+    # This condition is to handle the
+    # case when num is a prime number
+    # greater than 2
+    if num > 2:
+        largest_prime = num
+
+    return int(largest_prime)
 
 
+print(largest_prime_factor(13195))
 print(largest_prime_factor())
