@@ -13,6 +13,7 @@ ans: 906609
 
 def largest_number_palindrome():
     """
+    todo: Needs improvement
     Return the largest palindrome made from the product of two 3-digit numbers.
     """
     largest_palindrome = 0
